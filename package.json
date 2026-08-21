@@ -43,6 +43,7 @@
     "oxlint-plugin-eslint": "1.79.0"
   },
   "devDependencies": {
+    "@antfu/ni": "^30.5.0",
     "@oxlint/plugins": "1.79.0",
     "@tsconfig/strictest": "2.0.8",
     "@types/node": "24.13.3",
