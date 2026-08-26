@@ -1,7 +1,5 @@
 import type { ExternalPluginEntry } from 'oxlint'
 
-import { resolvePlugin } from './utils.ts'
-
 export const pluginEslintJs: ExternalPluginEntry = {
   name: 'eslint-js',
   specifier: 'oxlint-plugin-eslint',
@@ -34,7 +32,7 @@ export const pluginCommand: ExternalPluginEntry = {
   name: 'command',
   specifier: 'eslint-plugin-command',
 }
-export const pluginPreferTemplate = resolvePlugin(
-  'prefer-template',
-  './custom-plugins/prefer-template.ts',
-)
+export const pluginPreferTemplate: ExternalPluginEntry = {
+  name: 'prefer-template',
+  specifier: '@ghettoddos/oxlint-config/custom-plugins/prefer-template',
+}

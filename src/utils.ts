@@ -1,6 +1,4 @@
-import type { ExternalPluginEntry, OxlintConfig } from 'oxlint'
-
-import { fileURLToPath } from 'node:url'
+import type { OxlintConfig } from 'oxlint'
 
 function isArray(value: unknown): value is unknown[] {
   return Array.isArray(value)
@@ -8,19 +6,6 @@ function isArray(value: unknown): value is unknown[] {
 
 function isObject(value: unknown): value is Record<string, unknown> {
   return typeof value === 'object' && value !== null
-}
-
-export function resolvePlugin(
-  name: string,
-  specifier: string,
-): Exclude<ExternalPluginEntry, string> {
-  let resolved = specifier
-
-  try {
-    resolved = fileURLToPath(import.meta.resolve(specifier))
-  } catch {}
-
-  return { name, specifier: resolved }
 }
 
 export function combine(...configs: OxlintConfig[]) {

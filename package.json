@@ -22,6 +22,7 @@
   "types": "./dist/index.d.mts",
   "exports": {
     ".": "./dist/index.mjs",
+    "./custom-plugins/prefer-template": "./dist/custom-plugins/prefer-template.mjs",
     "./package.json": "./package.json"
   },
   "scripts": {
@@ -34,24 +35,24 @@
     "watch": "tsdown --watch"
   },
   "dependencies": {
-    "@stylistic/eslint-plugin": "5.10.0",
-    "eslint-plugin-command": "4.0.0",
-    "eslint-plugin-de-morgan": "2.1.3",
-    "eslint-plugin-no-only-tests": "3.4.0",
-    "eslint-plugin-perfectionist": "5.10.1",
-    "eslint-plugin-regexp": "3.2.0",
-    "oxlint-plugin-eslint": "1.79.0"
+    "@oxlint/plugins": "^1.79.0",
+    "@stylistic/eslint-plugin": "^5.10.0",
+    "eslint-plugin-command": "^4.0.0",
+    "eslint-plugin-de-morgan": "^2.1.3",
+    "eslint-plugin-no-only-tests": "^3.4.0",
+    "eslint-plugin-perfectionist": "^5.10.1",
+    "eslint-plugin-regexp": "^3.2.0",
+    "oxlint-plugin-eslint": "^1.79.0"
   },
   "devDependencies": {
     "@antfu/ni": "^30.5.0",
-    "@oxlint/plugins": "1.79.0",
-    "@tsconfig/strictest": "2.0.8",
-    "@types/node": "24.13.3",
-    "bumpp": "^12.2.1",
-    "eslint-plugin-better-tailwindcss": "4.7.0",
+    "@tsconfig/strictest": "^2.0.8",
+    "@types/node": "^24.13.3",
+    "bumpp": "^12.2.2",
+    "eslint-plugin-better-tailwindcss": "^4.7.0",
     "oxfmt": "^0.64.0",
-    "oxlint": "1.79.0",
-    "oxlint-tsgolint": "7.0.2001",
+    "oxlint": "^1.79.0",
+    "oxlint-tsgolint": "^7.0.2001",
     "tsdown": "^0.22.14",
     "typescript": "^7.0.2"
   },
