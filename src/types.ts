@@ -79,13 +79,6 @@ export type OptionsTypescript =
 
 export interface OptionsConfig extends OptionsProjectType {
   /**
-   * Enable eslint-plugin-command
-   *
-   * @default true
-   */
-  command?: boolean
-
-  /**
    * Enable eslint-plugin-de-morgan
    *
    * @default true

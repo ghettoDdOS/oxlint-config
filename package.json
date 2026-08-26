@@ -37,7 +37,6 @@
   "dependencies": {
     "@oxlint/plugins": "^1.79.0",
     "@stylistic/eslint-plugin": "^5.10.0",
-    "eslint-plugin-command": "^4.0.0",
     "eslint-plugin-de-morgan": "^2.1.3",
     "eslint-plugin-no-only-tests": "^3.4.0",
     "eslint-plugin-perfectionist": "^5.10.1",

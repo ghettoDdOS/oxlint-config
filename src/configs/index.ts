@@ -1,4 +1,3 @@
-export * from './command.ts'
 export * from './de-morgan.ts'
 export * from './disables.ts'
 export * from './ignores.ts'

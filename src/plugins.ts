@@ -28,10 +28,6 @@ export const pluginDeMorgan: ExternalPluginEntry = {
   name: 'de-morgan',
   specifier: 'eslint-plugin-de-morgan',
 }
-export const pluginCommand: ExternalPluginEntry = {
-  name: 'command',
-  specifier: 'eslint-plugin-command',
-}
 export const pluginPreferTemplate: ExternalPluginEntry = {
   name: 'prefer-template',
   specifier: '@ghettoddos/oxlint-config/custom-plugins/prefer-template',

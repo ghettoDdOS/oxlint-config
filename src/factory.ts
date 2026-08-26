@@ -3,7 +3,6 @@ import type { OxlintConfig } from 'oxlint'
 import type { OptionsConfig } from './types.ts'
 
 import {
-  command,
   deMorgan,
   disables,
   ignores,
@@ -43,7 +42,6 @@ export function defineOxlintConfig(
   ...userConfigs: OxlintConfig[]
 ): OxlintConfig {
   const {
-    command: enableCommand = true,
     deMoragn: enableDeMorgan = true,
     ignores: userIgnores = [],
     imports: enableImports = true,
@@ -89,10 +87,6 @@ export function defineOxlintConfig(
   const typescriptOptions = resolveSubOptions(options, 'typescript')
   const tsconfigPath =
     'tsconfigPath' in typescriptOptions ? typescriptOptions.tsconfigPath : undefined
-
-  if (enableCommand) {
-    configs.push(command())
-  }
 
   if (enablePerfectionist) {
     configs.push(perfectionist(resolveSubOptions(options, 'perfectionist')))
