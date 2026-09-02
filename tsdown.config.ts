@@ -6,6 +6,7 @@ export default defineConfig({
     'src/index.ts',
     'src/custom-plugins/prefer-template.ts',
     'src/custom-plugins/prefer-early-return.ts',
+    'src/custom-plugins/sonarjs.ts',
   ],
   exports: true,
   format: ['esm'],

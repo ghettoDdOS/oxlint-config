@@ -2,10 +2,6 @@ import type { ExternalPluginEntry, OxlintConfig } from 'oxlint'
 
 import { fileURLToPath } from 'node:url'
 
-function isArray(value: unknown): value is unknown[] {
-  return Array.isArray(value)
-}
-
 function isObject(value: unknown): value is Record<string, unknown> {
   return typeof value === 'object' && value !== null
 }
@@ -45,7 +41,7 @@ export default function mergeConfig(
       continue
     }
 
-    if (isArray(value) && isArray(result[key])) {
+    if (Array.isArray(value) && Array.isArray(result[key])) {
       const values = [...new Set([...result[key], ...value])]
 
       ;(result as any)[key] = key === 'plugins' ? (values as readonly string[]).toSorted() : values

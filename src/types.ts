@@ -45,6 +45,16 @@ export interface OptionsTailwindCSS extends OptionsOverrides {
   entryPoint: string
 }
 
+export interface OptionsAntislop extends OptionsOverrides {
+  cwd?: string
+  inspection?:
+    | 'full'
+    | 'recent-changes'
+    | 'uncommitted'
+    | { mode: 'full' | 'uncommitted' }
+    | { mode: 'recent-changes'; tracebackCommits?: number }
+}
+
 export interface OptionsTypeScriptWithTypes {
   /** Override type aware rules. */
   overridesTypeAware?: OxlintConfig['rules']
@@ -78,6 +88,19 @@ export type OptionsTypescript =
   | (OptionsOverrides & OptionsTypeScriptWithTypes)
 
 export interface OptionsConfig extends OptionsProjectType {
+  /**
+   * Enable rules from `eslint-plugin-slop`.
+   *
+   * Requires installing: - `eslint-plugin-slop`
+   *
+   * Passing an object enables the rules and forwards it to the plugin via `settings.slop`,
+   * controlling the working directory and inspection mode.
+   *
+   * @default false
+   * @see https://github.com/antfu/eslint-plugin-slop
+   */
+  antislop?: boolean | OptionsAntislop
+
   /**
    * Enable eslint-plugin-de-morgan
    *
@@ -176,6 +199,13 @@ export interface OptionsConfig extends OptionsProjectType {
    * @see https://ota-meshi.github.io/eslint-plugin-regexp/
    */
   regexp?: boolean | OptionsOverrides
+
+  /**
+   * Enable eslint-plugin-sonarjs
+   *
+   * @default true
+   */
+  sonarjs?: boolean | OptionsOverrides
 
   /**
    * Enable stylistic rules.

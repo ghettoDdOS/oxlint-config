@@ -91,11 +91,11 @@ export function react(options: OptionsFiles & OptionsOverrides = {}): OxlintConf
           'react/style-prop-object': 'error',
           'react/void-dom-elements-no-children': 'error',
 
-          // React hooks
+          /* React hooks */
           'react/exhaustive-deps': 'error',
           'react/rules-of-hooks': 'error',
 
-          // React compiler
+          /* React compiler */
           'react/capitalized-calls': 'off',
           'react/error-boundaries': 'error',
           'react/exhaustive-effect-dependencies': 'off',
@@ -119,7 +119,7 @@ export function react(options: OptionsFiles & OptionsOverrides = {}): OxlintConf
           'react/use-memo': 'error',
           'react/void-use-memo': 'error',
 
-          // React refresh
+          /* React refresh */
           'react/only-export-components': [
             'error',
             {

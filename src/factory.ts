@@ -3,6 +3,7 @@ import type { OxlintConfig } from 'oxlint'
 import type { OptionsConfig } from './types.ts'
 
 import {
+  antislop,
   deMorgan,
   disables,
   ignores,
@@ -17,6 +18,7 @@ import {
   promise,
   react,
   regexp,
+  sonarJs,
   stylistic,
   tailwindcss,
   test,
@@ -37,11 +39,13 @@ const configProps = [
   'settings',
 ] satisfies (keyof OxlintConfig)[]
 
+// oxlint-disable-next-line sonarjs/cognitive-complexity
 export function defineOxlintConfig(
   options: Omit<OxlintConfig, 'categories' | 'extends' | 'ignorePatterns'> & OptionsConfig = {},
   ...userConfigs: OxlintConfig[]
 ): OxlintConfig {
   const {
+    antislop: enableAntislop = false,
     deMoragn: enableDeMorgan = true,
     ignores: userIgnores = [],
     imports: enableImports = true,
@@ -54,6 +58,7 @@ export function defineOxlintConfig(
     promise: enablePromise = true,
     react: enableReact = hasReact(),
     regexp: enableRegexp = true,
+    sonarjs: enableSonarJs = true,
     tailwindcss: enableTailwindcss = false,
     test: enableTest = true,
     type: appType = 'app',
@@ -75,7 +80,8 @@ export function defineOxlintConfig(
   const stylisticOptions =
     options.stylistic === false
       ? false
-      : typeof options.stylistic === 'object'
+      : // oxlint-disable-next-line unicorn/no-nested-ternary
+        typeof options.stylistic === 'object'
         ? options.stylistic
         : {}
 
@@ -142,6 +148,14 @@ export function defineOxlintConfig(
         type: appType,
       }),
     )
+  }
+
+  if (enableAntislop) {
+    configs.push(antislop(resolveSubOptions(options, 'antislop')))
+  }
+
+  if (enableSonarJs) {
+    configs.push(sonarJs(resolveSubOptions(options, 'sonarjs')))
   }
 
   if (stylisticOptions) {
