@@ -36,11 +36,6 @@ export function stylistic(options: OptionsOverrides = {}): OxlintConfig {
           prev: 'block-like',
         },
         {
-          blankLine: 'always',
-          next: '*',
-          prev: ['case', 'default'],
-        },
-        {
           blankLine: 'never',
           next: 'directive',
           prev: 'directive',
