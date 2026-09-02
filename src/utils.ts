@@ -1,4 +1,6 @@
-import type { OxlintConfig } from 'oxlint'
+import type { ExternalPluginEntry, OxlintConfig } from 'oxlint'
+
+import { fileURLToPath } from 'node:url'
 
 function isArray(value: unknown): value is unknown[] {
   return Array.isArray(value)
@@ -55,4 +57,14 @@ export default function mergeConfig(
   }
 
   return result
+}
+
+export function resolvePlugin(name: string, specifier: string): ExternalPluginEntry {
+  let resolved = specifier
+
+  try {
+    resolved = fileURLToPath(import.meta.resolve(specifier))
+  } catch {}
+
+  return { name, specifier: resolved }
 }

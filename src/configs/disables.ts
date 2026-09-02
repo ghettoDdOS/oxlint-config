@@ -21,7 +21,6 @@ export function disables(): OxlintConfig {
       {
         files: ['**/*.d.{ts,cts,mts}'],
         rules: {
-          'eslint-js/no-restricted-syntax': 'off',
           'no-unused-vars': 'off',
           'typescript/consistent-indexed-object-style': 'off',
           'import/no-unassigned-import': 'off',

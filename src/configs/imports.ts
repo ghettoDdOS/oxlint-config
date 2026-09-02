@@ -11,7 +11,7 @@ export function imports(options: OptionsOverrides & OptionsStylistic = {}): Oxli
       'import/consistent-type-specifier-style': ['error', 'prefer-top-level'],
       'import/default': 'error',
       'import/export': 'error',
-      'import/exports-last': 'error',
+      'import/exports-last': 'off', // TBA
       'import/extensions': 'off',
       'import/first': 'error',
       'import/group-exports': 'off',

@@ -1,34 +1,16 @@
-import type { ExternalPluginEntry } from 'oxlint'
+import { resolvePlugin } from './utils.ts'
 
-export const pluginEslintJs: ExternalPluginEntry = {
-  name: 'eslint-js',
-  specifier: 'oxlint-plugin-eslint',
-}
-export const pluginPerfectionist: ExternalPluginEntry = {
-  name: 'perfectionist',
-  specifier: 'eslint-plugin-perfectionist',
-}
-export const pluginRegexp: ExternalPluginEntry = {
-  name: 'regexp',
-  specifier: 'eslint-plugin-regexp',
-}
-export const pluginStylistic: ExternalPluginEntry = {
-  name: 'style',
-  specifier: '@stylistic/eslint-plugin',
-}
-export const pluginNoOnlyTests: ExternalPluginEntry = {
-  name: 'no-only-tests',
-  specifier: 'eslint-plugin-no-only-tests',
-}
-export const pluginTailwindcss: ExternalPluginEntry = {
-  name: 'tailwindcss',
-  specifier: 'eslint-plugin-better-tailwindcss',
-}
-export const pluginDeMorgan: ExternalPluginEntry = {
-  name: 'de-morgan',
-  specifier: 'eslint-plugin-de-morgan',
-}
-export const pluginPreferTemplate: ExternalPluginEntry = {
-  name: 'prefer-template',
-  specifier: '@ghettoddos/oxlint-config/custom-plugins/prefer-template',
-}
+export const pluginPerfectionist = resolvePlugin('perfectionist', 'eslint-plugin-perfectionist')
+export const pluginRegexp = resolvePlugin('regexp', 'eslint-plugin-regexp')
+export const pluginStylistic = resolvePlugin('style', '@stylistic/eslint-plugin')
+export const pluginNoOnlyTests = resolvePlugin('no-only-tests', 'eslint-plugin-no-only-tests')
+export const pluginTailwindcss = resolvePlugin('tailwindcss', 'eslint-plugin-better-tailwindcss')
+export const pluginDeMorgan = resolvePlugin('de-morgan', 'eslint-plugin-de-morgan')
+export const pluginPreferTemplate = resolvePlugin(
+  'prefer-template',
+  '@ghettoddos/oxlint-config/custom-plugins/prefer-template',
+)
+export const pluginPreferEarlyReturn = resolvePlugin(
+  'prefer-early-return',
+  '@ghettoddos/oxlint-config/custom-plugins/prefer-early-return',
+)

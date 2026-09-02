@@ -3,7 +3,7 @@ import type { OxlintConfig } from 'oxlint'
 import type { OptionsIsInEditor, OptionsOverrides } from '../types.ts'
 
 import { confusingBrowserGlobals } from '../constants.ts'
-import { pluginEslintJs } from '../plugins.ts'
+import { pluginPreferEarlyReturn } from '../plugins.ts'
 
 export function javascript(options: OptionsIsInEditor & OptionsOverrides = {}): OxlintConfig {
   const { isInEditor = false, overrides = {} } = options
@@ -21,7 +21,7 @@ export function javascript(options: OptionsIsInEditor & OptionsOverrides = {}): 
       reportUnusedDisableDirectives: 'warn',
     },
     plugins: ['eslint'],
-    jsPlugins: [pluginEslintJs],
+    jsPlugins: [pluginPreferEarlyReturn],
     rules: {
       'accessor-pairs': 'error',
       'array-callback-return': 'error',
@@ -271,17 +271,7 @@ export function javascript(options: OptionsIsInEditor & OptionsOverrides = {}): 
       'vars-on-top': 'error',
       yoda: ['error', 'never'],
 
-      'eslint-js/no-restricted-syntax': [
-        'error',
-        {
-          selector: 'TSEnumDeclaration',
-          message: "Avoid using TypeScript's enums.",
-        },
-        {
-          selector: 'TSExportAssignment',
-          message: "Avoid using TypeScript's export aliases.",
-        },
-      ],
+      'prefer-early-return/prefer-early-return': 'error',
 
       ...overrides,
     },
