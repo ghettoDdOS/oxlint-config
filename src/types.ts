@@ -208,6 +208,15 @@ export interface OptionsConfig extends OptionsProjectType {
   sonarjs?: boolean | OptionsOverrides
 
   /**
+   * Enable storybook rules.
+   *
+   * Requires installing: - `eslint-plugin-storybook`
+   *
+   * @default auto-detect based on the dependencies
+   */
+  storybook?: boolean | OptionsOverrides
+
+  /**
    * Enable stylistic rules.
    *
    * @default true

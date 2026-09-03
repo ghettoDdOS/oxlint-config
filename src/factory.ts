@@ -19,13 +19,14 @@ import {
   react,
   regexp,
   sonarJs,
+  storybook,
   stylistic,
   tailwindcss,
   test,
   typescript,
   unicorn,
 } from './configs/index.ts'
-import { hasNextJs, hasReact, hasTypeScript, isInEditorEnv } from './env.ts'
+import { hasNextJs, hasReact, hasStorybook, hasTypeScript, isInEditorEnv } from './env.ts'
 import { combine } from './utils.ts'
 
 const configProps = [
@@ -59,6 +60,7 @@ export function defineOxlintConfig(
     react: enableReact = hasReact(),
     regexp: enableRegexp = true,
     sonarjs: enableSonarJs = true,
+    storybook: enableStorybook = hasStorybook(),
     tailwindcss: enableTailwindcss = false,
     test: enableTest = true,
     type: appType = 'app',
@@ -186,6 +188,10 @@ export function defineOxlintConfig(
         tsconfigPath,
       }),
     )
+  }
+
+  if (enableStorybook) {
+    configs.push(storybook(resolveSubOptions(options, 'storybook')))
   }
 
   configs.push(disables())

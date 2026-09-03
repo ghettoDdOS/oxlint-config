@@ -6,6 +6,7 @@ export const pluginStylistic = resolvePlugin('style', '@stylistic/eslint-plugin'
 export const pluginNoOnlyTests = resolvePlugin('no-only-tests', 'eslint-plugin-no-only-tests')
 export const pluginTailwindcss = resolvePlugin('tailwindcss', 'eslint-plugin-better-tailwindcss')
 export const pluginDeMorgan = resolvePlugin('de-morgan', 'eslint-plugin-de-morgan')
+export const pluginStorybook = resolvePlugin('storybook', 'eslint-plugin-storybook')
 export const pluginSonarJs = resolvePlugin(
   'sonarjs',
   '@ghettoddos/oxlint-config/custom-plugins/sonarjs',

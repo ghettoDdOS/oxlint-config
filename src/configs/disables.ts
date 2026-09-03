@@ -63,6 +63,12 @@ export function disables(): OxlintConfig {
           'unicorn/consistent-function-scoping': 'off',
         },
       },
+      {
+        files: [`**/*.stories.${GLOB_SRC_EXT}`],
+        rules: {
+          'unicorn/consistent-function-scoping': 'off',
+        },
+      },
     ],
   }
 }
